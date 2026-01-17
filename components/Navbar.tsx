@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Briefcase } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -12,6 +15,29 @@ const Navbar: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false); // Close mobile menu if open
+    
+    const targetId = href.replace('#', '');
+    
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Wait for navigation to complete then scroll
+      setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      } else if (href === '#home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+  };
 
   const navLinks = [
     { name: 'אודות', href: '#about' },
@@ -27,7 +53,11 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-2 text-2xl font-bold tracking-tight text-white group">
+        <a 
+          href="#home" 
+          onClick={(e) => handleNavigation(e, '#home')}
+          className="flex items-center gap-2 text-2xl font-bold tracking-tight text-white group cursor-pointer"
+        >
           <div className="w-10 h-10 bg-accent-500 rounded-lg flex items-center justify-center text-slate-900 transition-transform group-hover:rotate-12">
             <span className="text-xl font-black">SR</span>
           </div>
@@ -39,15 +69,17 @@ const Navbar: React.FC = () => {
           {navLinks.map((link) => (
             <a 
               key={link.name} 
-              href={link.href} 
-              className="text-slate-300 hover:text-accent-400 font-medium transition-colors text-sm uppercase tracking-wider"
+              href={link.href}
+              onClick={(e) => handleNavigation(e, link.href)}
+              className="text-slate-300 hover:text-accent-400 font-medium transition-colors text-sm uppercase tracking-wider cursor-pointer"
             >
               {link.name}
             </a>
           ))}
           <a 
             href="#contact" 
-            className="px-6 py-2 bg-white text-slate-900 font-bold text-sm uppercase tracking-wide rounded-sm hover:bg-accent-400 transition-colors"
+            onClick={(e) => handleNavigation(e, '#contact')}
+            className="px-6 py-2 bg-white text-slate-900 font-bold text-sm uppercase tracking-wide rounded-sm hover:bg-accent-400 transition-colors cursor-pointer"
           >
             תיאום פגישה
           </a>
@@ -69,8 +101,8 @@ const Navbar: React.FC = () => {
             <a 
               key={link.name} 
               href={link.href}
-              className="text-slate-200 text-lg py-2 border-b border-slate-800"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={(e) => handleNavigation(e, link.href)}
+              className="text-slate-200 text-lg py-2 border-b border-slate-800 cursor-pointer"
             >
               {link.name}
             </a>

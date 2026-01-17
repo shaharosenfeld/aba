@@ -1,50 +1,7 @@
 import React from 'react';
-import { BarChart3, Target, Briefcase, Lightbulb, UserCheck, Globe } from 'lucide-react';
-import { ServiceItem } from '../types';
-
-const services: ServiceItem[] = [
-  {
-    id: '1',
-    title: 'אסטרטגיה עסקית',
-    description: 'בניית תוכנית אסטרטגית מקיפה לטווח הארוך, כולל הגדרת חזון, יעדים ומדדי הצלחה ברורים.',
-    icon: <Target className="w-8 h-8" />
-  },
-  {
-    id: '2',
-    title: 'שיפור ביצועים',
-    description: 'ניתוח וייעול תהליכים עסקיים, שיפור יעילות תפעולית והגדלת רווחיות באמצעות כלים מתקדמים.',
-    icon: <TrendingUpIcon />
-  },
-  {
-    id: '3',
-    title: 'קורסים והרצאות',
-    description: 'הרצאות מעוררות השראה וקורסים מקצועיים בנושאי ניהול, מנהיגות ואסטרטגיה עסקית.',
-    icon: <Briefcase className="w-8 h-8" />
-  },
-  {
-    id: '4',
-    title: 'פיתוח עסקי',
-    description: 'זיהוי מנועי צמיחה חדשים, פתיחת שווקים ויצירת שיתופי פעולה אסטרטגיים להגדלת ההכנסות.',
-    icon: <Lightbulb className="w-8 h-8" />
-  },
-  {
-    id: '5',
-    title: 'ניהול וליווי פרויקטים',
-    description: 'ניהול ותכנון פרויקטים מורכבים, ליווי צמוד לאורך כל שלבי היישום להבטחת השגת היעדים.',
-    icon: <UserCheck className="w-8 h-8" />
-  },
-  {
-    id: '6',
-    title: 'ליווי מנהלים',
-    description: 'מנטורינג אישי למנכ"לים ובכירים, חידוד יכולות מנהיגות וקבלת החלטות בתנאי אי-ודאות.',
-    icon: <Globe className="w-8 h-8" />
-  }
-];
-
-// Helper component just for this file
-function TrendingUpIcon() {
-  return <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>;
-}
+import { Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
+import { servicesData } from '../data/services';
 
 const Services: React.FC = () => {
   return (
@@ -59,19 +16,25 @@ const Services: React.FC = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service) => (
-            <div 
+          {servicesData.map((service) => (
+            <Link 
+              to={`/service/${service.id}`}
               key={service.id} 
-              className="bg-slate-900 border border-slate-800 p-8 rounded-xl hover:border-accent-500/50 transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl hover:shadow-accent-500/10"
+              className="bg-slate-900 border border-slate-800 p-8 rounded-xl hover:border-accent-500/50 transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl hover:shadow-accent-500/10 flex flex-col h-full"
             >
               <div className="w-14 h-14 bg-slate-800 rounded-lg flex items-center justify-center text-accent-500 mb-6 group-hover:bg-accent-500 group-hover:text-slate-900 transition-colors">
                 {service.icon}
               </div>
               <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
-              <p className="text-slate-400 leading-relaxed text-sm">
-                {service.description}
+              <p className="text-slate-400 leading-relaxed text-sm mb-6 flex-grow">
+                {service.shortDescription}
               </p>
-            </div>
+              
+              <div className="flex items-center text-accent-500 text-sm font-bold group-hover:gap-2 transition-all">
+                <span>למידע נוסף</span>
+                <ArrowLeft className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all" />
+              </div>
+            </Link>
           ))}
         </div>
       </div>

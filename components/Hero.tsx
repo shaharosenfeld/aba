@@ -59,7 +59,7 @@ const Hero: React.FC = () => {
                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0"
                />
                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 to-transparent p-8">
-                 <p className="text-white font-bold text-lg">שמואל רוזנפלד</p>
+                 <p className="text-white font-bold text-lg">שמוליק רוזנפלד</p>
                  <p className="text-accent-400 text-sm">יועץ אסטרטגי</p>
                </div>
             </div>

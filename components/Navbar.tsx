@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
           <div className="w-10 h-10 bg-accent-500 rounded-lg flex items-center justify-center text-slate-900 transition-transform group-hover:rotate-12">
             <span className="text-xl font-black">SR</span>
           </div>
-          <span className="hidden sm:block">שמואל רוזנפלד</span>
+          <span className="hidden sm:block">שמוליק רוזנפלד</span>
         </a>
 
         {/* Desktop Menu */}

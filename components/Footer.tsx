@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
           
           <div className="flex items-center gap-2">
              <div className="w-8 h-8 bg-slate-800 rounded flex items-center justify-center text-accent-500 font-bold">SR</div>
-             <span className="text-lg font-semibold text-white">שמואל רוזנפלד</span>
+             <span className="text-lg font-semibold text-white">שמוליק רוזנפלד</span>
           </div>
 
           <div className="flex gap-6 text-sm">

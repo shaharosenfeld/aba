@@ -16,7 +16,7 @@ const About: React.FC = () => {
           <div className="md:w-1/2 relative order-2 md:order-1">
              <div className="absolute -inset-4 bg-gradient-to-tr from-accent-500/20 to-transparent rounded-xl blur-lg"></div>
              <img 
-              src="https://picsum.photos/id/3/800/600" 
+              src="images/pic1.jpeg" 
               alt="Consulting Session" 
               className="relative rounded-lg shadow-2xl border border-slate-700 w-full grayscale-[20%]"
              />

@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
         <div className="hidden md:block relative">
             <div className="relative w-full aspect-[4/5] rounded-lg overflow-hidden border border-slate-700/50 shadow-2xl">
                <img 
-                 src="https://picsum.photos/id/103/800/1000" 
+                 src="images/profile.jpeg" 
                  alt="Samuel Rosenfeld" 
                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0"
                />

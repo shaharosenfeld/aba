@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 text-2xl font-bold tracking-tight text-white group">
+        <a href="#home" className="flex items-center gap-2 text-2xl font-bold tracking-tight text-white group">
           <div className="w-10 h-10 bg-accent-500 rounded-lg flex items-center justify-center text-slate-900 transition-transform group-hover:rotate-12">
             <span className="text-xl font-black">SR</span>
           </div>

@@ -19,13 +19,34 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="flex gap-4">
-            <a href="#" className="p-2 bg-slate-900 rounded-full hover:bg-accent-500 hover:text-slate-900 transition-all">
+            <a 
+              href="https://www.linkedin.com/in/samuel-rosenfeld" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-2 bg-slate-900 rounded-full hover:bg-accent-500 hover:text-slate-900 transition-all"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
               <Linkedin size={18} />
             </a>
-            <a href="#" className="p-2 bg-slate-900 rounded-full hover:bg-accent-500 hover:text-slate-900 transition-all">
+            <a 
+              href="https://www.facebook.com/samuelrosenfeldconsulting" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-2 bg-slate-900 rounded-full hover:bg-accent-500 hover:text-slate-900 transition-all"
+              aria-label="Facebook"
+              title="Facebook"
+            >
               <Facebook size={18} />
             </a>
-            <a href="#" className="p-2 bg-slate-900 rounded-full hover:bg-accent-500 hover:text-slate-900 transition-all">
+            <a 
+              href="https://twitter.com/srosenfeld_cons" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-2 bg-slate-900 rounded-full hover:bg-accent-500 hover:text-slate-900 transition-all"
+              aria-label="Twitter"
+              title="Twitter"
+            >
               <Twitter size={18} />
             </a>
           </div>

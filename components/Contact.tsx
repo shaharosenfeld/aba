@@ -18,11 +18,24 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
+    
+    // Create email body
+    const subject = encodeURIComponent('פנייה חדשה מאתר הייעוץ');
+    const body = encodeURIComponent(
+      `שם: ${form.name}\n` +
+      `טלפון: ${form.phone}\n` +
+      `אימייל: ${form.email}\n\n` +
+      `הודעה:\n${form.message}`
+    );
+    
+    // Open email client
+    window.location.href = `mailto:office@rosenfeld-cons.com?subject=${subject}&body=${body}`;
+    
+    // Show success message
     setTimeout(() => {
       setIsSubmitted(true);
       setForm({ name: '', email: '', phone: '', message: '' });
-    }, 1000);
+    }, 500);
   };
 
   return (
@@ -47,25 +60,25 @@ const Contact: React.FC = () => {
                 <div>
                   <h3 className="text-xl font-bold text-white mb-6">פרטי התקשרות</h3>
                   <div className="space-y-6">
-                    <div className="flex items-start gap-4">
+                    <a href="tel:+972501234567" className="flex items-start gap-4 hover:opacity-80 transition-opacity">
                       <div className="p-3 bg-slate-900 rounded-lg text-accent-500">
                         <Phone size={20} />
                       </div>
                       <div>
                         <p className="text-sm text-slate-400">טלפון</p>
-                        <p className="text-white font-medium">050-123-4567</p>
+                        <p className="text-white font-medium hover:text-accent-400 transition-colors">050-123-4567</p>
                       </div>
-                    </div>
+                    </a>
                     
-                    <div className="flex items-start gap-4">
+                    <a href="mailto:office@rosenfeld-cons.com" className="flex items-start gap-4 hover:opacity-80 transition-opacity">
                       <div className="p-3 bg-slate-900 rounded-lg text-accent-500">
                         <Mail size={20} />
                       </div>
                       <div>
                         <p className="text-sm text-slate-400">אימייל</p>
-                        <p className="text-white font-medium">office@rosenfeld-cons.com</p>
+                        <p className="text-white font-medium hover:text-accent-400 transition-colors">office@rosenfeld-cons.com</p>
                       </div>
-                    </div>
+                    </a>
 
                     <div className="flex items-start gap-4">
                       <div className="p-3 bg-slate-900 rounded-lg text-accent-500">

@@ -136,7 +136,7 @@ const Contact: React.FC = () => {
                           type="tel" 
                           name="phone"
                           className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-accent-500 focus:ring-1 focus:ring-accent-500 outline-none transition-all"
-                          placeholder="050-0000000"
+                          placeholder="054-707-0444"
                           value={form.phone}
                           onChange={handleChange}
                         />

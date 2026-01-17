@@ -60,17 +60,17 @@ const Contact: React.FC = () => {
                 <div>
                   <h3 className="text-xl font-bold text-white mb-6">פרטי התקשרות</h3>
                   <div className="space-y-6">
-                    <a href="tel:+972501234567" className="flex items-start gap-4 hover:opacity-80 transition-opacity">
+                    <a href="tel:+972547070444" className="flex items-start gap-4 hover:opacity-80 transition-opacity">
                       <div className="p-3 bg-slate-900 rounded-lg text-accent-500">
                         <Phone size={20} />
                       </div>
                       <div>
                         <p className="text-sm text-slate-400">טלפון</p>
-                        <p className="text-white font-medium hover:text-accent-400 transition-colors">050-123-4567</p>
+                        <p className="text-white font-medium hover:text-accent-400 transition-colors">054-707-0444</p>
                       </div>
                     </a>
                     
-                    <a href="mailto:office@rosenfeld-cons.com" className="flex items-start gap-4 hover:opacity-80 transition-opacity">
+                    <a href="sammmmmmmmmm@gmail.com" className="flex items-start gap-4 hover:opacity-80 transition-opacity">
                       <div className="p-3 bg-slate-900 rounded-lg text-accent-500">
                         <Mail size={20} />
                       </div>

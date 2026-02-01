@@ -9,6 +9,7 @@ export interface ServiceItem {
   icon: React.ReactNode;
   image: string;
   features: string[];
+  detailImages?: string[];
 }
 
 // Helper for the custom icon if needed, though Lucide has TrendingUp
@@ -44,6 +45,13 @@ export const servicesData: ServiceItem[] = [
       'תכנון S&OP ופיתוח לקחים',
       'הטמעת אוטומציה',
       'שיפור יעילות תפעולית'
+    ],
+    detailImages: [
+      '/images/industry1.jpg',
+      '/images/industry2.jpg',
+      '/images/industry3.jpg',
+      '/images/industry4.jpg',
+      '/images/industry5.jpg'
     ]
   },
   {
@@ -85,6 +93,14 @@ export const servicesData: ServiceItem[] = [
       'קורסים מקצועיים',
       'הרצאות מעוררות השראה',
       'תוכניות התפתחות ארגונית'
+    ],
+    detailImages: [
+      '/images/course1.svg',
+      '/images/course2.jpg',
+      '/images/course3.jpg',
+      '/images/course4.jpg',
+      '/images/course5.jpg',
+      '/images/course6.jpg'
     ]
   },
   {
@@ -107,6 +123,13 @@ export const servicesData: ServiceItem[] = [
       'ניהול שרשרת אספקה',
       'איחוד מפעלים',
       'תמיכה מקצועית בפרויקטים'
+    ],
+    detailImages: [
+      '/images/develop1.jpg',
+      '/images/develop2.jpg',
+      '/images/develop3.jpg',
+      '/images/develop4.jpg',
+      '/images/develop5.jpg'
     ]
   },
   {
@@ -131,6 +154,12 @@ export const servicesData: ServiceItem[] = [
       'הקמת פרויקטים מורכבים',
       'ליווי הערכות מועד',
       'ניהול מרכזים לוגיסטיים'
+    ],
+    detailImages: [
+      '/images/manage1.jpg',
+      '/images/manage2.jpg',
+      '/images/manage3.jpg',
+      '/images/manage4.jpg'
     ]
   },
   {
@@ -163,6 +192,10 @@ export const servicesData: ServiceItem[] = [
       'רישוי ואישורי ISO 9000',
       'יעוץ ואופטימיזציה',
       'תוצאות דרמטיות מוכחות'
+    ],
+    detailImages: [
+      '/images/quality1.png',
+      '/images/quality2.png'
     ]
   },
   {
@@ -183,6 +216,10 @@ export const servicesData: ServiceItem[] = [
       'פיתוח מנהלים בכירים',
       'ניסיון מוכח במשק',
       'ליווי והדרכה מקצועית'
+    ],
+    detailImages: [
+      '/images/mentoring1.jpg',
+      '/images/mentoring2.jpg'
     ]
   }
 ];

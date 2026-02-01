@@ -62,6 +62,23 @@ const ServiceDetail: React.FC = () => {
                     </div>
                 </div>
 
+                {service.detailImages && service.detailImages.length > 0 && (
+                  <div className="bg-slate-850 p-8 rounded-2xl border border-slate-800 shadow-xl">
+                    <h2 className="text-2xl font-bold text-white mb-6 border-r-4 border-accent-500 pr-4">תמונות ודוגמאות</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {service.detailImages.map((img, idx) => (
+                        <div key={idx} className="relative rounded-lg overflow-hidden border border-slate-700 hover:border-accent-500 transition-all">
+                          <img 
+                            src={img} 
+                            alt={`${service.title} - תמונה ${idx + 1}`}
+                            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 <div className="bg-slate-850 p-8 rounded-2xl border border-slate-800 shadow-xl">
                     <h2 className="text-2xl font-bold text-white mb-6 border-r-4 border-accent-500 pr-4">מה כולל השירות?</h2>
                     <div className="grid sm:grid-cols-2 gap-4">

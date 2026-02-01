@@ -57,27 +57,58 @@ const ServiceDetail: React.FC = () => {
             <div className="md:col-span-2 space-y-8">
                 <div className="bg-slate-850 p-8 rounded-2xl border border-slate-800 shadow-xl">
                     <h2 className="text-2xl font-bold text-white mb-6 border-r-4 border-accent-500 pr-4">אודות השירות</h2>
-                    <div className="prose prose-invert prose-lg max-w-none text-slate-300 whitespace-pre-line">
-                        {service.fullDescription}
-                    </div>
-                </div>
-
-                {service.detailImages && service.detailImages.length > 0 && (
-                  <div className="bg-slate-850 p-8 rounded-2xl border border-slate-800 shadow-xl">
-                    <h2 className="text-2xl font-bold text-white mb-6 border-r-4 border-accent-500 pr-4">תמונות ודוגמאות</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {service.detailImages.map((img, idx) => (
-                        <div key={idx} className="relative rounded-lg overflow-hidden border border-slate-700 hover:border-accent-500 transition-all">
-                          <img 
-                            src={img} 
-                            alt={`${service.title} - תמונה ${idx + 1}`}
-                            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-                          />
+                    
+                    {service.detailContent ? (
+                      <div className="space-y-6">
+                        {service.detailContent.map((block, idx) => {
+                          if (block.type === 'text') {
+                            return (
+                              <div key={idx} className="prose prose-invert prose-lg max-w-none text-slate-300 whitespace-pre-line">
+                                {block.content}
+                              </div>
+                            );
+                          } else if (block.type === 'images' && Array.isArray(block.content)) {
+                            return (
+                              <div key={idx} className={`grid gap-4 ${block.content.length === 1 ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2'}`}>
+                                {block.content.map((img, imgIdx) => (
+                                  <div key={imgIdx} className="relative rounded-lg overflow-hidden border border-slate-700 hover:border-accent-500 transition-all">
+                                    <img 
+                                      src={img} 
+                                      alt={`${service.title} - תמונה ${imgIdx + 1}`}
+                                      className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+                                    />
+                                  </div>
+                                ))}
+                              </div>
+                            );
+                          }
+                          return null;
+                        })}
+                      </div>
+                    ) : (
+                      <>
+                        <div className="prose prose-invert prose-lg max-w-none text-slate-300 whitespace-pre-line">
+                          {service.fullDescription}
                         </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
+                        {service.detailImages && service.detailImages.length > 0 && (
+                          <div className="mt-8">
+                            <h3 className="text-xl font-bold text-white mb-4">תמונות ודוגמאות</h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                              {service.detailImages.map((img, idx) => (
+                                <div key={idx} className="relative rounded-lg overflow-hidden border border-slate-700 hover:border-accent-500 transition-all">
+                                  <img 
+                                    src={img} 
+                                    alt={`${service.title} - תמונה ${idx + 1}`}
+                                    className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
+                                  />
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </>
+                    )}
+                </div>
 
                 <div className="bg-slate-850 p-8 rounded-2xl border border-slate-800 shadow-xl">
                     <h2 className="text-2xl font-bold text-white mb-6 border-r-4 border-accent-500 pr-4">מה כולל השירות?</h2>

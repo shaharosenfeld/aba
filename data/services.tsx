@@ -1,6 +1,11 @@
 import React from 'react';
 import { Target, Briefcase, Lightbulb, UserCheck, Globe, TrendingUp } from 'lucide-react';
 
+export interface ContentBlock {
+  type: 'text' | 'image' | 'images';
+  content: string | string[];
+}
+
 export interface ServiceItem {
   id: string;
   title: string;
@@ -10,6 +15,7 @@ export interface ServiceItem {
   image: string;
   features: string[];
   detailImages?: string[];
+  detailContent?: ContentBlock[];
 }
 
 // Helper for the custom icon if needed, though Lucide has TrendingUp
@@ -24,17 +30,15 @@ export const servicesData: ServiceItem[] = [
     title: 'שיפור ביצועים שילוב Industry 4.0',
     shortDescription: 'ניתוח וייעול תהליכים עסקיים, שיפור יעילות תפעולית שחרור צווארי בקבוק והגדלת רווחיות באמצעות כלים מתקדמים.',
     fullDescription: `
-      ניתוח והכנסת בי מיקוד הגדרה: KPI, OEE, BSC, איתור, תכנון בני מיצוי S&OP, ניתוח ופיתוח לקחים להפיכת אוטומציה להגביר יצור התשיטפיה:
+      ניתוח והכנסת כלי בקרה ומדידה  :KPI, OEE,BSC,קאיזן, תכנון מול ביצוע ,OP&S ניתוח והפקת לקחים.
+      הכנסת אוטומציה לתהלכי יצור ולוגיסטיקה:
+      
+      • Sabon   התקנת רובוט ממשטח בסוף קו
+        קו מיון גופים למלח זרים אלקטרואופטי    :
 
-      דוגמאות לפרויקטים שבוצעו:
+      • התקנת קו אריזה אוטמטי שלם בסוף קו ויסוצקי (מארז בקרטון, רובוט ממשטח, מסועים, קוד) :
       
-      • Sabon - התקנת רובוט ממשטח בסוף קו
-      
-      • קו מיין נפומס גילמה הרים אלקטרואופטי
-      
-      • התקנת גיא אריזה אוטמטי שלים בקו וויסוצקי (משרת ביקילון, רובוט ממשטח, מעסיק, עיד.)
-      
-      • קיו אריזה אוטומטי אחרית שילוק עם שקילו וקוביירסים
+      • קו אריזה אוטומטי לאריזת שקיות עם משקל קומבינטורי:
       
       באחת מן החברות שמלווית - סיפורית הצלחה מרשימה...
     `,
@@ -46,12 +50,35 @@ export const servicesData: ServiceItem[] = [
       'הטמעת אוטומציה',
       'שיפור יעילות תפעולית'
     ],
-    detailImages: [
-      '/images/industry1.jpg',
-      '/images/industry2.jpg',
-      '/images/industry3.jpg',
-      '/images/industry4.jpg',
-      '/images/industry5.jpg'
+    detailContent: [
+      {
+        type: 'text',
+        content: 'ניתוח והכנסת כלי בקרה ומדידה: KPI, OEE, BSC, קאיזן, תכנון מול ביצוע, S&OP ניתוח והפקת לקחים.\nהכנסת אוטומציה לתהלכי יצור ולוגיסטיקה:\n\n• Sabon - התקנת רובוט ממשטח בסוף קו\n• קו מיון גופים למלח זרים אלקטרואופטי'
+      },
+      {
+        type: 'images',
+        content: ['/images/industry1.jpg', '/images/industry2.jpg']
+      },
+      {
+        type: 'text',
+        content: '• התקנת קו אריזה אוטמטי שלם בסוף קו ויסוצקי (מארז בקרטון, רובוט ממשטח, מסועים, קוד)'
+      },
+      {
+        type: 'images',
+        content: ['/images/industry3.jpg', '/images/industry4.jpg']
+      },
+      {
+        type: 'text',
+        content: '• קו אריזה אוטומטי לאריזת שקיות עם משקל קומבינטורי'
+      },
+      {
+        type: 'images',
+        content: ['/images/industry5.jpg']
+      },
+      {
+        type: 'text',
+        content: '\nבאחת מן החברות שמלווית - סיפורית הצלחה מרשימה...'
+      }
     ]
   },
   {
@@ -59,10 +86,10 @@ export const servicesData: ServiceItem[] = [
     title: 'קורסים והרצאות',
     shortDescription: 'הרצאות מעוררות השראה וקורסים מקצועיים בנושאי ניהול, מנהיגות ואסטרטגיה עסקית.',
     fullDescription: `
-      מה ניתן ללמוד באקדמיה - אופנויום מנהיגים, הבנת תהליכות השקאה לנהגה:
+      מרצה בכיר באקדמיה , אירגונים מקצועיים , חברות והרצאות העשרה ,לדוגמא :
 
-      • לוחמבי יישו – תבנית תהליכית מחדשים בחברה
-      • מה צוות מנכ"ל אשר תונן – לימוד יישו תונן שר MBA בלוודיוולסקה
+      • להוביל שינוי – תוכנית הערכות מחדש בתנובה 
+      • מרצה אורח בבר אילן ורופין – לימודי תואר שני MBA בלוגיסטיקה
       • קורס הלמידה שוול קו למנהלים בני מיוי – מה הוא ערובת אקס תוכניות וצוהרים ההן תובן (כללית בריאות..)
       • קורס יועצי עבודות פנימיים
       • קורס בסיסיות למנהלים המדניכדות חדש של אלון

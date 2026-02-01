@@ -279,9 +279,15 @@ export const servicesData: ServiceItem[] = [
       'ניסיון מוכח במשק',
       'ליווי והדרכה מקצועית'
     ],
-    detailImages: [
-      '/images/mentoring1.jpg',
-      '/images/mentoring2.jpg'
+    detailContent: [
+      {
+        type: 'text',
+        content: 'מנטורינג אישי למנכ"לים ובכירים, חידוד יכולות מנהיגות וקבלת החלטות בתנאי אי-ודאות.\n\nמבצע ליווי של מנהלים,\nעם נסיון בגידול דורות של מנהלים צעירים והפיכתם למנהלים בכירים במשק הישראלי.'
+      },
+      {
+        type: 'images',
+        content: ['/images/mentoring1.jpg', '/images/mentoring2.jpg']
+      }
     ]
   }
 ];
